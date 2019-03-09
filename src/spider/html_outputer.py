@@ -1,8 +1,11 @@
+from src.db import db_main
+
 
 class HtmlOutputer:
 
     def __init__(self):
         self.data_list = []
+        self.db_outputer = db_main.DBMain()
 
     def collect_data(self, data):
         if data is None:
@@ -11,8 +14,4 @@ class HtmlOutputer:
             self.data_list.append(item)
 
     def output(self):
-        file = open(r'output.txt', 'w')
-        for data in self.data_list:
-            file.write(str(data))
-            file.write('\n')
-        file.close()
+        self.db_outputer.main(self.data_list)
