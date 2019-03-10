@@ -14,4 +14,4 @@ class HtmlOutputer:
             self.data_list.append(item)
 
     def output(self):
-        self.db_outputer.main(self.data_list)
+        self.db_outputer.insert_jd_item_info(self.data_list)
