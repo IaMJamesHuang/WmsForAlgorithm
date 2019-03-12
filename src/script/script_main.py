@@ -1,9 +1,13 @@
+import random
+
 from src.script import auto_buy_script
 # 项目地址
 base_url = r'http://localhost:8080/wms/'
 # 自动购买测试商品
 auto_buy_items = [
-    {"company_id": "1", "user_id": "1", "barcode": "6903653028657", "amount": "2", "loc": "LC001"}
+    {"company_id": "1", "user_id": "1", "barcode": "6903653028657", "amount": "2", "loc": "LC001"},
+    {"company_id": "1", "user_id": "1", "barcode": "12345678", "amount": "2", "loc": "LC001"},
+    {"company_id": "1", "user_id": "1", "barcode": "6938166920785", "amount": "2", "loc": "LC002"}
 ]
 
 
@@ -19,4 +23,6 @@ class ScriptMain:
 
 
 if __name__ == "__main__":
+    for item in auto_buy_items:
+        item['amount'] = str(int(random.uniform(10, 20)))
     ScriptMain().main()
