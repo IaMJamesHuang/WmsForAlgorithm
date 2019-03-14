@@ -20,4 +20,4 @@ class AutoBuy:
         }
         request = urllib.request.Request(url=url, headers=headers, data=post_data, method='POST')
         response = urllib.request.urlopen(request)
-        print(response.read())
+        print(str(response.read(), encoding="utf-8"))
